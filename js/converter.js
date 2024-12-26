@@ -134,6 +134,4 @@ export function initializeCurrencyConverter() {
         document.dispatchEvent(new CustomEvent('historyUpdated'));
     }
 }
-    // function goHome(){
-    //     window.location.href = "//.index.html";
-    // }
+
