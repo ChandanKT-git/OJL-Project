@@ -32,11 +32,8 @@ export function initializeCurrencyConverter() {
         resultRate: document.querySelector('.result-rate'),
         copyBtn: document.getElementById('copy-btn')
     };
-
-    // Initialize currency dropdowns
     populateCurrencyDropdowns();
-
-    // Event listeners
+    
     elements.convertBtn.addEventListener('click', handleConversion);
     elements.swapBtn.addEventListener('click', swapCurrencies);
     elements.copyBtn.addEventListener('click', copyResult);
@@ -57,19 +54,12 @@ export function initializeCurrencyConverter() {
             elements.fromCurrency.appendChild(createOption(currency));
             elements.toCurrency.appendChild(createOption(currency));
         });
-
-        // Set default values
+        
         elements.fromCurrency.value = 'USD';
         elements.toCurrency.value = 'EUR';
     }
 
-    function filterCurrencies(event, select) {
-        const searchTerm = event.target.value.toLowerCase();
-        Array.from(select.options).forEach(option => {
-            const text = option.textContent.toLowerCase();
-            option.style.display = text.includes(searchTerm) ? '' : 'none';
-        });
-    }
+
 
     function validateAmount() {
         const amount = parseFloat(elements.amount.value);
@@ -91,7 +81,7 @@ export function initializeCurrencyConverter() {
         elements.resultRate.textContent = `1 ${fromCurrency} = ${rate.toFixed(4)} ${toCurrency}`;
         elements.result.classList.remove('hidden');
 
-        // Save to history
+        
         saveToHistory(amount, fromCurrency, toCurrency, convertedAmount);
     }
 
