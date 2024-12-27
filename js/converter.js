@@ -59,8 +59,6 @@ export function initializeCurrencyConverter() {
         elements.toCurrency.value = 'EUR';
     }
 
-
-
     function validateAmount() {
         const amount = parseFloat(elements.amount.value);
         elements.convertBtn.disabled = isNaN(amount) || amount <= 0;
