@@ -8,7 +8,6 @@ export function initializeHistory() {
         historySearch: document.getElementById('history-search')
     };
 
-    // Event listeners
     elements.historyBtn.addEventListener('click', openModal);
     elements.closeModal.addEventListener('click', closeModal);
     elements.clearHistory.addEventListener('click', clearHistory);
@@ -50,17 +49,17 @@ export function initializeHistory() {
         `).join('');
     }
 
-    function filterHistory(e) {
-        const searchTerm = e.target.value.toLowerCase();
-        const history = JSON.parse(localStorage.getItem('conversionHistory') || '[]');
-        const filtered = history.filter(item => 
-            item.from.toLowerCase().includes(searchTerm) ||
-            item.to.toLowerCase().includes(searchTerm) ||
-            item.amount.toString().includes(searchTerm) ||
-            item.convertedAmount.toString().includes(searchTerm)
-        );
-        renderHistory(filtered);
-    }
+    // function filterHistory(e) {
+    //     const searchTerm = e.target.value.toLowerCase();
+    //     const history = JSON.parse(localStorage.getItem('conversionHistory') || '[]');
+    //     const filtered = history.filter(item => 
+    //         item.from.toLowerCase().includes(searchTerm) ||
+    //         item.to.toLowerCase().includes(searchTerm) ||
+    //         item.amount.toString().includes(searchTerm) ||
+    //         item.convertedAmount.toString().includes(searchTerm)
+    //     );
+    //     renderHistory(filtered);
+    // }
 
     function clearHistory() {
         if (confirm('Are you sure you want to clear all conversion history?')) {
