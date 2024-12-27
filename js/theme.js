@@ -8,7 +8,7 @@ export function initializeTheme() {
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
     }
 
-    // Initialize theme
+  
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         setTheme(savedTheme === 'dark');
@@ -16,13 +16,12 @@ export function initializeTheme() {
         setTheme(prefersDark.matches);
     }
 
-    // Theme toggle button
     themeToggle.addEventListener('click', () => {
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
         setTheme(!isDark);
     });
 
-    // Watch for system theme changes
+
     prefersDark.addEventListener('change', (e) => {
         if (!localStorage.getItem('theme')) {
             setTheme(e.matches);
